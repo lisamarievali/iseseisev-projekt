@@ -1,4 +1,3 @@
-// select all elements
 const start = document.getElementById("start");
 const choises = document.getElementById("choises");
 // const Java = document.getElementById("Java");
@@ -37,11 +36,9 @@ window.onload = function(){
     start.addEventListener("click", startQuiz);
     readText();
     readText2();
-    // readText2();
-
 }
 
-//read in the file
+//loe küsimuste fail sisse
 function readText(){
     let webReq = new XMLHttpRequest();
         webReq.open("GET", questionsURL, true);
@@ -55,8 +52,7 @@ function readText(){
 	webReq.send(null);
 	
 }
-//read in the file
-
+//loe vastuste fail sisse
 function readText2(){
     let webReq = new XMLHttpRequest();
         webReq.open("GET", answersURL, true);
@@ -71,7 +67,7 @@ function readText2(){
 	
 }
 
-//make the array
+//tee massiiv küsimuste ja vastuste failist
 function buildQuiz(fromFile){
 	console.log(fromFile);
 	let tempArray = fromFile.split("|");
@@ -97,7 +93,7 @@ function buildQuiz2(fromFile){
 
 const lastQuestion = quizContent.length - 1;
 
-// render a question
+// koosta küsimus
 function renderQuestion(){
     if(quizContent.length > 0){
         let randomNum = Math.round(Math.random() * (quizContent.length-1));
@@ -125,7 +121,7 @@ function renderQuestion(){
 }
 
 
-// start quiz
+// alusta viktoriiniga
 function startQuiz(){
     start.style.display = "none";
     renderQuestion();
@@ -135,13 +131,13 @@ function startQuiz(){
     TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
 }
 
-// render progress
+// näita küsimuste progressi
 function renderProgress(){
     for(let qIndex = 0; qIndex <= (quizContent.length); qIndex++){
         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
     }
 }
-// counter render
+// aeg
 function renderCounter(){
     if(count <= questionTime){
         counter.innerHTML = count;
@@ -149,13 +145,13 @@ function renderCounter(){
         count++
     }else{
         count = 0;
-        // change progress color to red
+        // muuda progressi värv punaseks
         // answerIsWrong();
         if(runningQuestion < lastQuestion){
             runningQuestion++;
             renderQuestion();
         }else{
-            // end the quiz and show the score
+            // lõpeta viktoriin ja näita tulemus
             clearInterval(TIMER);
         }
     }
@@ -164,13 +160,12 @@ function renderCounter(){
 
 function checkAnswer(secret){
     if(secret == document.getElementById("").value){
-        // answer is correct
+        // õige vastus
         score++;
-        // change progress color to green
+        // muuda progressi värv roheliseks
         answerIsCorrect();
     }else{
-        // answer is wrong
-        // change progress color to red
+        // vale vastus; muuda progressi värv punaseks
         answerIsWrong();
     }
     count = 0;
@@ -178,17 +173,36 @@ function checkAnswer(secret){
         runningQuestion++;
         renderQuestion();
     }else{
-        // end the quiz and show the score
+        // lõpeta ja näita tulemus
         clearInterval(TIMER);
         // scoreRender();
     }
 }
 
+//õige vastus
 function answerIsCorrect(){
     document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
 }
 
-// answer is Wrong
+// vale vastus
 function answerIsWrong(){
     document.getElementById(runningQuestion).style.backgroundColor = "#f00";
+}
+
+// tulemus
+function scoreRender(){
+    scoreDiv.style.display = "block";
+    
+    // kalkuleeri vastuste protsent
+    const scorePerCent = Math.round(100 * score/lastQuestion);
+    
+    // vali vastav pilt
+    let img = (scorePerCent >= 80) ? "img/5.png" :
+              (scorePerCent >= 60) ? "img/4.png" :
+              (scorePerCent >= 40) ? "img/3.png" :
+              (scorePerCent >= 20) ? "img/2.png" :
+              "img/1.png";
+    
+    scoreDiv.innerHTML = "<img src="+ img +">";
+    scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
 }
