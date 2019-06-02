@@ -1,0 +1,92 @@
+[
+    {
+        "question": "Millist märki kasutab jQuery otseteena?",
+        "options": {
+            "A": {"value": "!"},
+            "B": {"value": "$"},
+            "C": {"value": "%"}
+        },
+        "correct": "B"
+    },
+    {
+        "question": "Kuidas muuta jQuery'ga kõik p elemendi taustad siniseks?",
+        "options": {
+            "A": {"value": "$(\"p\").css(\"background-color\",\"blue\")"},
+            "B": {"value": "$(\"p\").style(\"background-color\",\"blue\")"},
+            "C": {"value": "$(\"p\").layout(\"background-color\",\"blue\")"}
+        },
+        "correct": "A"
+    },
+    {
+        "question": "Millise meetodiga saab peita valitud elemendid?",
+        "options": {
+            "A": {"value": "visible(false)"},
+            "B": {"value": "display(none)"},
+            "C": {"value": "hide()"}
+        },
+        "correct": "C"
+    },
+    {
+        "question": "Millise meetodiga saab määrata style omadused valitud elementidele?",
+        "options": {
+            "A": {"value": "style()"},
+            "B": {"value": "css()"},
+            "C": {"value": "html()"}
+        },
+        "correct": "B"
+    },
+    {
+        "question": "Millises keeles on jQuery kirjutatud?",
+        "options": {
+            "A": {"value": "JavaScript"},
+            "B": {"value": "C++"},
+            "C": {"value": "C#"}
+        },
+        "correct": "A"
+    },
+    {
+        "question": "Millist meetodit kasutada nimede konflikti puhul?",
+        "options": {
+            "A": {"value": "nameConflict()"},
+            "B": {"value": "noNameConflict()"},
+            "C": {"value": "noConflict()"}
+        },
+        "correct": "C"
+    },
+    {
+        "question": "Millise meetodiga saab eemaldada valitud elemente?",
+        "options": {
+            "A": {"value": "remove()"},
+            "B": {"value": "detach()"},
+            "C": {"value": "Mõlemaga"}
+        },
+        "correct": "C"
+    },
+    {
+        "question": "Milline jQuery meetod tagastab otsese parent elemendi valitud elemendi puhul?",
+        "options": {
+            "A": {"value": "parent()"},
+            "B": {"value": "parents()"},
+            "C": {"value": "ancestor()"}
+        },
+        "correct": "A"
+    },
+    {
+        "question": "Millist funktsiooni kasutatakse, et ennetada koodi käivitumist enne dokumendi lõplikut laadimist?",
+        "options": {
+            "A": {"value": "$(body).onload()"},
+            "B": {"value": "$(document).load()"},
+            "C": {"value": "$(document).ready()"}
+        },
+        "correct": "C"
+    },
+    {
+        "question": "Millist jQuery meetodit kasutatakse asünkroonse HTTP-päringu tegemiseks?",
+        "options": {
+            "A": {"value": "jQuery.ajaxSetup()"},
+            "B": {"value": "jQuery.ajax()"},
+            "C": {"value": "jQuery.ajaxAsync()"}
+        },
+        "correct": "B"
+    }
+]

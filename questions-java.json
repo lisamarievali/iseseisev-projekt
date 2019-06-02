@@ -1,0 +1,29 @@
+[
+    {
+        "question": "Mis on float muutuja vaikimisi väärtus?",
+        "options": {
+            "A": {"value": "0.0f"},
+            "B": {"value": "0.0d"},
+            "C": {"value": "0"}
+        },
+        "correct": "A"
+    },
+    {
+        "question": "Mis on Char'i suurus Javas?",
+        "options": {
+            "A": {"value": "4 bitti"},
+            "B": {"value": "8 bitti"},
+            "C": {"value": "16 bitti"}
+        },
+        "correct": "C"
+    },
+    {
+        "question": "Javat saab kasutada..?",
+        "options": {
+            "A": {"value": "Windows'is"},
+            "B": {"value": "Unix/Linuxis"},
+            "C": {"value": "Mõlemas"}
+        },
+        "correct": "C"
+    }
+]

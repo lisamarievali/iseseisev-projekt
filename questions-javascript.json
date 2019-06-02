@@ -1,0 +1,92 @@
+[
+    {
+        "question": "Millise HTML elemendi sisse läheb JavaScript?",
+        "options": {
+            "A": {"value": "<js>"},
+            "B": {"value": "<style>"},
+            "C": {"value": "<script>"}
+        },
+        "correct": "C"
+    },
+    {
+        "question": "Milline on õige viide JavaScript failile xxx.js?",
+        "options": {
+            "A": {"value": "<script src=\"xxx.js\">"},
+            "B": {"value": "<script name=\"xxx.js\">"},
+            "C": {"value": "<script href=\"xxx.js\">"}
+        },
+        "correct": "A"
+    },
+    {
+        "question": "Kuidas kirjutatakse JavaScriptis funktsioon?",
+        "options": {
+            "A": {"value": "function = myFunction()"},
+            "B": {"value": "function myFunction()"},
+            "C": {"value": "myFunction()"}
+        },
+        "correct": "B"
+    },
+    {
+        "question": "Kuidas kirjutada JavaScriptis kommentaar?",
+        "options": {
+            "A": {"value": "Ei saagi"},
+            "B": {"value": "<!--See on kommentaar-->"},
+            "C": {"value": "//See on kommentaar"}
+        },
+        "correct": "C"
+    },
+    {
+        "question": "Kuidas JavaScriptis massiivi deklareerida?",
+        "options": {
+            "A": {"value": "massiiv = \"\""},
+            "B": {"value": "massiiv = []"},
+            "C": {"value": "massiiv = ()"}
+        },
+        "correct": "B"
+    },
+    {
+        "question": "Milline on õige?",
+        "options": {
+            "A": {"value": "onclick"},
+            "B": {"value": "onmouseclick"},
+            "C": {"value": "oneclick"}
+        },
+        "correct": "A"
+    },
+    {
+        "question": "Kuidas deklareerida muutuja?",
+        "options": {
+            "A": {"value": "v someName"},
+            "B": {"value": "variable someName"},
+            "C": {"value": "var someName"}
+        },
+        "correct": "C"
+    },
+    {
+        "question": "Kuidas leida x ja y seast suurim number?",
+        "options": {
+            "A": {"value": "Math.max(x,y)"},
+            "B": {"value": "Math.ceil(x,y)"},
+            "C": {"value": "ceil(x,y)"}
+        },
+        "correct": "A"
+    },
+    {
+        "question": "Kuidas ümardada 4.85?",
+        "options": {
+            "A": {"value": "Math.rnd(4.85)"},
+            "B": {"value": "Math.round(4.85)"},
+            "C": {"value": "round(4.85)"}
+        },
+        "correct": "B"
+    },
+    {
+        "question": "Kuidas kirjutada kommentaari mitmele reale?",
+        "options": {
+            "A": {"value": "<!--kommentaar-->"},
+            "B": {"value": "//kommentaar//"},
+            "C": {"value": "/*kommentaar*/"}
+        },
+        "correct": "C"
+    }
+]

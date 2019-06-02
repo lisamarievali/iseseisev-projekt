@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="opening-container">
+        <h1>Selle viktoriiniga saad näidata, kui hästi tunned JavaScript'i, Javat ja jQuery'i.<br>Iga küsimuse vastamiseks on aega 10
+        sekundit. Kui selle ajaga vastata ei jõua või vastad valesti, läheb protsendiloendur punaseks. Mängu lõpus saad sisestada oma nime ja su nimi läheb
+    skooritabelisse. </h1>
+    </div>
+    
+    <div id="container">
+        
+        <div class="start-container" id="start">
+            
+            <div data-category="javascript">Java<br>Script</div>
+            <div data-category="java">Java</div>
+            <div data-category="jquery">jQuery</div>
+        </div>
+        
+        
+        <div id="quiz" style="display: none">
+            <div><p id="question"></p></div>
+                <div class="answers">
+                    <ol type="A">
+                        <li id="answer-A"></li>
+                        <li id="answer-B"></li>
+                        <li id="answer-C"></li>
+                    </ol>
+                </div>
+                <div class="choices" id="choices">
+                    <div class="choice" id="A" onclick="checkAnswer('A')">A</div>
+                    <div class="choice" id="B" onclick="checkAnswer('B')">B</div>
+                    <div class="choice" id="C" onclick="checkAnswer('C')">C</div>
+                </div>
+
+            <div id="timer">
+                <div id="counter"></div>
+                <div id="btimeGauge"></div>
+                <div id="timeGauge"></div>
+            </div>
+            <div id="progress"></div>
+        </div>
+        <div id="scoreContainer" style="display: none">
+                <img id="scoreImage"/>
+                <p id="scorePerCent"></p>
+                <div class="name">
+                    Sisesta oma nimi:
+                    <input type="text" id="name"/>
+                    <button id="sendScore">Saada</button>
+                </div>
+        </div>
+
+        <div class="names">
+            <p>Selle lehe autorid on Lisa-Marie Väli ja Emma Loore Tae.</p>
+    </div>
+        
+    </div>
+    <div id="scores" style="display: none">
+        </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
