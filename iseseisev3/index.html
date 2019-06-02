@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="start">Start Quiz!</div>
+        <div id="quiz" style="display: none">
+            <div id="question"></div>
+                <div class="choices" id="choices" onclick="checkAnswer()">
+                    <div class="answers" id="A"></div>
+                    <div class="answers" id="B"></div>
+                    <div class="answers" id="C"></div>
+                </div>
+
+            <div id="timer">
+                <div id="counter"></div>
+                <div id="btimeGauge"></div>
+                <div id="timeGauge"></div>
+            </div>
+            <div id="progress"></div>
+        </div>
+        <div id="scoreContainer" style="display: none"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
