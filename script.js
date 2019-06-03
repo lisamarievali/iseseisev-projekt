@@ -1,4 +1,3 @@
-// select all elements
 const start = document.getElementById("start");
 const category = $("[data-category]");
 const choises = document.getElementById("choises");
@@ -14,6 +13,7 @@ const choiceC = $("#C");
 const counter = document.getElementById("counter");
 const timeGauge = document.getElementById("timeGauge");
 const scoreDiv = document.getElementById("scoreContainer");
+const questionContentDiv = document.getElementById("question-content");
 const questionTime = 10; // 10s
 const gaugeWidth = 150; // 150px
 const gaugeUnit = gaugeWidth / questionTime;
@@ -54,7 +54,7 @@ function startQuiz() {
 }
 
 
-// render a question
+// Küsimused
 function renderQuestion(){
 
     let q = quizQuestions[runningQuestion];
@@ -68,16 +68,16 @@ function renderQuestion(){
 }
 
 
-// start quiz
+// Viktoriini algus
 
-// render progress
+
 function renderProgress(){
     for(let qIndex = 0; qIndex < quizQuestions.length; qIndex++){
         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
     }
 }
 
-// counter render
+
 function renderCounter(){
     if(count <= questionTime){
         counter.innerHTML = count;
@@ -85,13 +85,13 @@ function renderCounter(){
         count++
     }else{
         count = 0;
-        // change progress color to red
+        // Protsendiloendur punaseks
         answerIsWrong();
         if(runningQuestion < quizQuestions.length - 1){
             runningQuestion++;
             renderQuestion();
         }else{
-            // end the quiz and show the score
+            // näia skoori
             clearInterval(TIMER);
             scoreRender();
         }
@@ -99,17 +99,20 @@ function renderCounter(){
 }
 
 function scoreRender(){
+
+
     scoreDiv.style.display = "block";
+    questionContentDiv.style.display = "none";
     
-    // calculate the amount of question percent answered by the user
+    // arvutab protsendi
     const scorePerCent = Math.round(100 * score/quizQuestions.length);
     
-    // choose the image based on the scorePerCent
+    // näitab pilti olenevalt protsendist
     let img = (scorePerCent >= 80) ? "5.png" :
-              (scorePerCent >= 60) ? "img/4.png" :
-              (scorePerCent >= 40) ? "img/3.png" :
-              (scorePerCent >= 20) ? "img/2.png" :
-              "img/1.png";
+              (scorePerCent >= 60) ? "4.png" :
+              (scorePerCent >= 40) ? "3.png" :
+              (scorePerCent >= 20) ? "2.png" :
+              "1.png";
     
     $("#scoreImage").attr("src", img);
     $("#scorePerCent").text(scorePerCent + "%");
@@ -120,13 +123,10 @@ function checkAnswer(option){
     let q = quizQuestions[runningQuestion];
 
     if(option == q.correct){
-        // answer is correct
+        // vastus on õige
         score++;
-        // change progress color to green
         answerIsCorrect();
     } else{
-        // answer is wrong
-        // change progress color to red
         answerIsWrong();
     }
     count = 0;
@@ -134,7 +134,6 @@ function checkAnswer(option){
         runningQuestion++;
         renderQuestion();
     }else{
-        // end the quiz and show the score
         clearInterval(TIMER);
         scoreRender();
     }
@@ -144,7 +143,7 @@ function answerIsCorrect(){
     document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
 }
 
-// answer is Wrong
+// vastus on vale
 function answerIsWrong(){
     document.getElementById(runningQuestion).style.backgroundColor = "#f00";
 }
@@ -178,3 +177,47 @@ function showScores() {
         $("#scores").show();
      });
 }
+
+let deferredPrompt;
+const pwaAddButton = document.querySelector("#start-button");
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js', {
+      scope: '.'
+    }).then(function (registration) {
+      // Registeerimine õnnestus
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function (err) {
+      // Registeerimine ei õnnestunud
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Et ei näitaks varem kui vaja
+  e.preventDefault();
+  deferredPrompt = e;
+  //Näita kasutajale, et saab lisada seadmesse
+  pwaAddButton.style.display = 'flex';
+
+  console.log("PWA is ready to install");
+});
+
+pwaAddButton.addEventListener('click', (e) => {
+  // Peida nupp
+  pwaAddButton.style.display = 'none';
+  // Näita valikut
+  deferredPrompt.prompt();
+  // Oota, et kasutaja vastaks
+  deferredPrompt.userChoice
+    .then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User added the PWA');
+      } else {
+        console.log('User dismissed the PWA prompt');
+      }
+      deferredPrompt = null;
+    });
+});

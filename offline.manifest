@@ -1,0 +1,13 @@
+CACHE MANIFEST
+#
+manifest.webmanifest
+icon.png
+index.html
+script.js
+style.css
+questions-java.json
+questions-javascript.json
+questions-jquery.json
+saveScore.php
+scors.json
+https://code.jquery.com/jquery-3.4.1.min.js

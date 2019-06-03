@@ -27,7 +27,7 @@
         "correct": "B"
     },
     {
-        "question": "Kuidas kirjutada JavaScriptis kommentaar?",
+        "question": "Kuidas kirjutada JavaScriptis üherealine kommentaar?",
         "options": {
             "A": {"value": "Ei saagi"},
             "B": {"value": "<!--See on kommentaar-->"},

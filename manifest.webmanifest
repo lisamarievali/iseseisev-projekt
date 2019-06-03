@@ -1,0 +1,16 @@
+{
+    "short_name": "Quiz",
+    "name": "Emma Loore ja Lisa-Marie viktoriin",
+    "icons": [
+        {
+            "src": "J.png",
+            "type": "image/png",
+            "sizes": "208x208"
+        }
+    ],
+    "start_url": ".",
+    "background_color": "#FFFED7",
+    "display": "fullscreen",
+    "scope": ".",
+    "theme_color": "#FFFED7"
+}
